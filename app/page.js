@@ -1,101 +1,302 @@
-import Image from "next/image";
+'use client'
+import React from 'react';
+import useAOS from './hooks/useAOS';
+import { toggleNavbar } from './utils/toggleNavbar';
+import { useEffect } from 'react';
 
-export default function Home() {
+
+export default function Page() {
+  useAOS();
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      {/* Navbar */}
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-900">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <a
+              className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+              href="#"
+            >
+              Gym Website
+            </a>
+            <button
+              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              type="button"
+              aria-label="Toggle navigation"
+            >
+              <span className="text-white">Menu</span>
+            </button>
+          </div>
+          <div className="lg:flex flex-grow items-center">
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <li className="flex items-center">
+                <a
+                  className="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="#"
+                >
+                  Icon Link 1
+                </a>
+              </li>
+              <li className="flex items-center">
+                <a
+                  className="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="#"
+                >
+                  Icon Link 2
+                </a>
+              </li>
+              <li className="flex items-center">
+                <a
+                  className="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="#"
+                >
+                  Icon Link 3
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+
+      {/* Hero Section */}
+      <main>
+        <div
+          className="relative pt-16 pb-32 flex content-center items-center justify-center"
+          style={{ minHeight: "95vh" }}
+        >
+          <div
+            className="absolute top-0 w-full h-full bg-top bg-cover"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80')",
+            }}
+          >
+            <span className="w-full h-full absolute opacity-75 bg-black"></span>
+          </div>
+          <div className="container relative mx-auto" data-aos="fade-in">
+            <div className="items-center flex flex-wrap">
+              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                <div>
+                  <h1 className="text-white font-semibold text-5xl">
+                    Feel The <span className="text-orange-500">Power</span>
+                  </h1>
+                  <p className="mt-4 text-lg text-gray-300">
+                    Welcome to The Power Room. We are a fitness and training center that focuses on pushing you to your absolute limit.
+                    Download our complete brochure to get started today!
+                  </p>
+                  <a
+                    href="#"
+                    className="bg-transparent hover:bg-orange-500 text-orange-500 font-semibold hover:text-white p-4 border border-orange-500 hover:border-transparent rounded inline-block mt-5 cursor-pointer"
+                  >
+                    Download Brochure
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden" style={{ height: "70px", transform: "translateZ(0px)" }}>
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+          </div>
+        </div>
+
+        {/* About Section */}
+        <section id="about" className="relative py-20 bg-black text-white">
+          <div className="container mx-auto px-4">
+            <div className="items-center flex flex-wrap">
+              <div className="w-full md:w-4/12 ml-auto mr-auto px-4" data-aos="fade-right">
+                <img
+                  alt="..."
+                  className="max-w-full rounded-lg shadow-lg"
+                  src="https://images.unsplash.com/photo-1550345332-09e3ac987658?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                />
+              </div>
+              <div className="w-full md:w-5/12 ml-auto mr-auto px-4" data-aos="fade-left">
+                <div className="md:pr-12">
+                  <small className="text-orange-500">About our gym</small>
+                  <h3 className="text-4xl uppercase font-bold">Safe Body Building</h3>
+                  <p className="mt-4 text-lg leading-relaxed">
+                    The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.
+                  </p>
+                  <ul className="list-none mt-6">
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="font-semibold inline-block py-3 mr-3 text-orange-500">
+                            <i className="fas fa-dumbbell fa-2x"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-xl">The latest & greatest gym equipment</h4>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="font-semibold inline-block py-3 mr-3 text-orange-500">
+                            <i className="fas fa-hard-hat fa-2x"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-xl">5-inch, quality foam floor padding</h4>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="py-2">
+                      <div className="flex items-center">
+                        <div>
+                          <span className="font-semibold inline-block py-3 mr-3 text-orange-500">
+                            <i className="fas fa-users fa-2x"></i>
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-xl">3 professional trainers</h4>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Trainers Section */}
+        <section className="pt-20 pb-48">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center text-center mb-24">
+              <div className="w-full lg:w-6/12 px-4">
+                <h2 className="text-4xl font-semibold uppercase">Meet Our Trainers</h2>
+                <p className="text-lg leading-relaxed m-4">
+                  Our trainers are here to dedicate the time and effort that you need to get in the best shape of your life
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap">
+              {/* Trainer Card 1 */}
+              <div className="w-full md:w-4/12 lg:mb-0 mb-12 px-4" data-aos="flip-right">
+                <div className="px-6">
+                  <img
+                    alt="..."
+                    src="https://images.unsplash.com/photo-1597347343908-2937e7dcc560?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=987&q=80"
+                    className="shadow-lg rounded max-w-full mx-auto"
+                    style={{ maxWidth: "250px" }}
+                  />
+                  <div className="pt-6 text-center">
+                    <h5 className="text-xl font-bold">Sam Smith</h5>
+                    <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                      Gym Trainer
+                    </p>
+                    <div className="mt-6">
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-twitter"></i>
+                      </button>
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-instagram"></i>
+                      </button>
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-facebook-f"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Trainer Card 2 */}
+              <div className="w-full md:w-4/12 lg:mb-0 mb-12 px-4" data-aos="flip-up">
+                <div className="px-6">
+                  <img
+                    alt="..."
+                    src="https://i.pinimg.com/enabled/564x/72/fe/f5/72fef5a1d51b6e103a970a05c8d6c5e9.jpg"
+                    className="shadow-lg rounded max-w-full mx-auto"
+                    style={{ maxWidth: "250px" }}
+                  />
+                  <div className="pt-6 text-center">
+                    <h5 className="text-xl font-bold">Jane Doe</h5>
+                    <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                      Gym Trainer
+                    </p>
+                    <div className="mt-6">
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-twitter"></i>
+                      </button>
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-instagram"></i>
+                      </button>
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-facebook-f"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Trainer Card 3 */}
+              <div className="w-full md:w-4/12 lg:mb-0 mb-12 px-4" data-aos="flip-left">
+                <div className="px-6">
+                  <img
+                    alt="..."
+                    src="https://i.pinimg.com/enabled/564x/f9/a7/a3/f9a7a30e3f6cada77cbd30f47f5a430f.jpg"
+                    className="shadow-lg rounded max-w-full mx-auto"
+                    style={{ maxWidth: "250px" }}
+                  />
+                  <div className="pt-6 text-center">
+                    <h5 className="text-xl font-bold">Alex Jones</h5>
+                    <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                      Gym Trainer
+                    </p>
+                    <div className="mt-6">
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-twitter"></i>
+                      </button>
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-instagram"></i>
+                      </button>
+                      <button
+                        className="bg-orange-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                      >
+                        <i className="fab fa-facebook-f"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
