@@ -9,54 +9,7 @@ export default function Page() {
   useAOS();
   return (
     <>
-      {/* Navbar */}
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-900">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
-              className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-              href="#"
-            >
-              Gym Website
-            </a>
-            <button
-              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-              type="button"
-              aria-label="Toggle navigation"
-            >
-              <span className="text-white">Menu</span>
-            </button>
-          </div>
-          <div className="lg:flex flex-grow items-center">
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="flex items-center">
-                <a
-                  className="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="#"
-                >
-                  Icon Link 1
-                </a>
-              </li>
-              <li className="flex items-center">
-                <a
-                  className="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="#"
-                >
-                  Icon Link 2
-                </a>
-              </li>
-              <li className="flex items-center">
-                <a
-                  className="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="#"
-                >
-                  Icon Link 3
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      
 
       {/* Hero Section */}
       <main>
